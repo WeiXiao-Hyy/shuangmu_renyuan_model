@@ -3,13 +3,13 @@
 ## Pipeline
 
 <center>
-<img src="NIDC-MODEL.png" width="600"/>
+<img src="NIDC-MODEL.png" width="800"/>
 </center>
 
 
 ## Grid Trick
 <center>
-<img src="NIDC.png" width="600"/>
+<img src="NIDC.png" width="800"/>
 </center>
 
 ## Installation
