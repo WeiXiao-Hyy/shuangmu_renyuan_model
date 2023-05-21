@@ -1,26 +1,16 @@
-# Deep-OC-SORT
+# Shuangmu_Renyuan_Model
 
-[![arXiv](https://img.shields.io/badge/arXiv-2302.11813-<COLOR>.svg)](https://arxiv.org/abs/2302.11813) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![test](https://img.shields.io/static/v1?label=By&message=Pytorch&color=red)
-
-
-### Deep OC-SORT: Multi-Pedestrian Tracking by Adaptive Re-Identification [[arxiv]](https://arxiv.org/abs/2302.11813)
-Gerard Maggiolino*, Adnan Ahmad*, Jinkun Cao, Kris Kitani (*=equal contribution)
+## Pipeline
 
 <center>
-<img src="pipeline.png" width="600"/>
+<img src="NIDC-MODEL.png" width="600"/>
 </center>
 
 
-| Dataset          | HOTA | AssA | IDF1 | MOTA  | IDs   | Frag   |
-| ---------------- | ---- | ---- | ---- | ---- | ----- | ---- |
-| MOT17 | 64.9 | 65.9 | 80.6 | 79.4 | 1,950 | 2,040  |
-| MOT20 | 63.9 | 65.9 | 79.2 | 75.6 | 779  | 1,536  |
-
-| Dataset          | HOTA | AssA | DetA | MOTA  | IDF1   |
-| ---------------- | ---- | ---- | ---- | ---- | ----- | 
-| DanceTrack | 61.3 | 45.8 | 82.2 | 92.3| 61.5 | 
-
-* As of Mar 9th, 2023, Deep-OC-SORT ranks 1st compared to published methods on MOT17 and MOT20 w.r.t. HOTA. It improves tracking performance on DanceTrack over [OC-SORT](https://github.com/noahcao/OC_SORT) by ~6 HOTA.
+## Grid Trick
+<center>
+<img src="NIDC.png" width="600"/>
+</center>
 
 ## Installation
 
@@ -77,7 +67,7 @@ For the MOT17/20 and DanceTrack baseline:
 exp=baseline
 # Flags to disable all the new changes
 python3 main.py --exp_name $exp --post --emb_off --cmc_off --aw_off --new_kf_off --grid_off --dataset mot17
-python3 main.py --exp_name $exp --post --emb_off --cmc_off --aw_off --new_kf_off --grid_off -dataset mot20 --track_thresh 0.4
+python3 main.py --exp_name $exp --post --emb_off --cmc_off --aw_off --new_kf_off --grid_off --dataset mot20 --track_thresh 0.4
 python3 main.py --exp_name $exp --post --emb_off --cmc_off --aw_off --new_kf_off --grid_off --dataset dance --aspect_ratio_thresh 1000
 ```
 
@@ -118,28 +108,14 @@ above.
 You can achieve higher results on individual datasets with different parameters, but we kept them fairly consistent with round 
 numbers to avoid over-tuning.
 
-## Contributing
 
-Formatted with `black --line-length=120 --exclude external .`
 
-# Citation
-
-If you find our work useful, please cite our paper: 
+Also see Deep OC-SORT, which we base our work upon: 
 ```
 @article{maggiolino2023deep,
     title={Deep OC-SORT: Multi-Pedestrian Tracking by Adaptive Re-Identification}, 
     author={Maggiolino, Gerard and Ahmad, Adnan and Cao, Jinkun and Kitani, Kris},
     journal={arXiv preprint arXiv:2302.11813},
     year={2023},
-}
-```
-
-Also see OC-SORT, which we base our work upon: 
-```
-@article{cao2022observation,
-  title={Observation-centric sort: Rethinking sort for robust multi-object tracking},
-  author={Cao, Jinkun and Weng, Xinshuo and Khirodkar, Rawal and Pang, Jiangmiao and Kitani, Kris},
-  journal={arXiv preprint arXiv:2203.14360},
-  year={2022}
 }
 ```
